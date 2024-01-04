@@ -1,9 +1,11 @@
 package org.codekage.pma.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.codekage.pma.entities.enums.Stage;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Project {
@@ -12,10 +14,18 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long projectId;
     private String name;
-    private String stage; // NOTSTARTED, COMPLETED, INPROGRESS
+    private Stage stage; // NOTSTARTED, COMPLETED, INPROGRESS
     private String description;
 
-    public Project(String name, String stage, String description) {
+    @ManyToMany
+    @JoinTable(
+            name = "projects_employees",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "employee_id")
+    )
+    private Set<Employee> employees = new HashSet<>();
+
+    public Project(String name, Stage stage, String description) {
         this.name = name;
         this.stage = stage;
         this.description = description;
@@ -40,11 +50,11 @@ public class Project {
         this.name = name;
     }
 
-    public String getStage() {
+    public Stage getStage() {
         return stage;
     }
 
-    public void setStage(String stage) {
+    public void setStage(Stage stage) {
         this.stage = stage;
     }
 
@@ -54,5 +64,13 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }

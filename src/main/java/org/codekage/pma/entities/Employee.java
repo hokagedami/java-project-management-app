@@ -1,9 +1,9 @@
 package org.codekage.pma.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Employee {
@@ -13,6 +13,9 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
+
+    @ManyToMany
+    private Set<Project> projects = new HashSet<>();
 
     public Employee() {
     }
@@ -53,5 +56,13 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 }
