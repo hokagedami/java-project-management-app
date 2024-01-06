@@ -34,7 +34,7 @@ public class ProjectService {
         return projectRepository.findAllProjectByEmployeeId(employeeId);
     }
 
-    public boolean addNewProject(ProjectToSave projectToSave) {
+    public boolean saveProjectWithAssignedEmployees(ProjectToSave projectToSave) {
         if(projectToSave == null
                 || projectToSave.getEmployees() == null
                 || projectToSave.getEmployees().isEmpty()) {

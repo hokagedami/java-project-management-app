@@ -2,8 +2,8 @@ package org.codekage.pma.entities.enums;
 
 public enum Stage {
     NOT_STARTED("Not Started"),
-    COMPLETED("Completed"),
-    IN_PROGRESS("In Progress");
+    IN_PROGRESS("In Progress"),
+    COMPLETED("Completed");
 
     private final String displayName;
 

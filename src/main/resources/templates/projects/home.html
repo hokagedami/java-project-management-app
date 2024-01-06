@@ -40,7 +40,7 @@
         <tr th:if="${not #lists.isEmpty(projects)}" th:each="project : ${projects}">
             <td th:text="${project.name}"></td>
             <td th:text="${project.description}"></td>
-            <td th:text="${project.stage}"></td>
+            <td th:text="${project.stage.getDisplayName()}"></td>
         </tr>
         <tr>
             <th colspan="3" class="text-center h4">

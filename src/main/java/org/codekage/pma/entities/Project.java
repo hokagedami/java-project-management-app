@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import org.codekage.pma.entities.enums.Stage;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,7 +16,8 @@ public class Project {
     private Stage stage; // NOTSTARTED, COMPLETED, INPROGRESS
     private String description;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST},
+            fetch = FetchType.LAZY)
     @JoinTable(
             name = "projects_employees",
             joinColumns = @JoinColumn(name = "project_id"),

@@ -33,7 +33,7 @@ public class EmployeeService {
     }
 
     // add employee to a project using the join table
-    public boolean addEmployeeToProject(long employeeId, long projectId) {
+    public void addEmployeeToProject(long employeeId, long projectId) {
         var employee = employeeRepository.findById(employeeId);
         var project = projectRepository.findById(projectId);
         if(employee.isPresent() && project.isPresent()) {
@@ -41,9 +41,7 @@ public class EmployeeService {
             var projectObj = project.get();
             employeeObj.getProjects().add(projectObj);
             employeeRepository.save(employeeObj);
-            return true;
         }
-        return false;
     }
 
     // remove employee from a project using the join table

@@ -4,7 +4,6 @@ import org.codekage.pma.entities.enums.Stage;
 import org.codekage.pma.model.ProjectToSave;
 import org.codekage.pma.services.EmployeeService;
 import org.codekage.pma.services.ProjectService;
-import org.codekage.pma.utils.EnumUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,14 +38,12 @@ public class ProjectController {
         model.addAttribute("projectToSave", new ProjectToSave());
         model.addAttribute("allEmployees", employeeService.getAll());
         model.addAttribute("stages", Stage.values());
-        model.addAttribute("enumUtils", new EnumUtils());
         return NEW_PROJECT_PAGE;
     }
 
     @PostMapping("/save")
     public String createProject(ProjectToSave project, RedirectAttributes redirectAttributes) {
-        System.out.println(project);
-        var saved = projectService.addNewProject(project);
+        var saved = projectService.saveProjectWithAssignedEmployees(project);
         if (!saved) {
             redirectAttributes.addAttribute("errorMessage", "Project not saved. Please try again.");
         }
