@@ -10,7 +10,7 @@ import java.util.Set;
 public class Project {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long projectId;
     private String name;
     private Stage stage; // NOTSTARTED, COMPLETED, INPROGRESS

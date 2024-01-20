@@ -8,7 +8,7 @@ import java.util.Set;
 @Entity
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long employeeId;
     private String firstName;
     private String lastName;
