@@ -1,73 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">
-    <title>PMA - Home</title>
-</head>
+<head th:replace="~{layouts::header}"></head>
 <body>
-<nav th:replace="layouts::navbar"></nav>
+<nav th:replace="~{layouts::navbar}"></nav>
 
 
-<!--Bootstrap Table-->
 <div class="container">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-<!--            Single Header line that spans table width and text is centralized-->
-            <th colspan="3" class="text-center h4">Projects</th>
-        </tr>
-        <tr>
-            <th scope="col">Project Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Stage</th>
-        </tr>
-        </thead>
-        <tbody>
-<!--        Thymeleaf if-->
-        <tr th:if="${#lists.isEmpty(projects)}">
-            <td colspan="3" class="text-center">No Project Available</td>
-        </tr>
-        <!--Loop through all projects and display them in the table-->
-        <tr th:if="${not #lists.isEmpty(projects)}" th:each="project : ${projects}">
-            <td th:text="${project.name}"></td>
-            <td th:text="${project.description}"></td>
-            <td th:text="${project.stage}"></td>
-        </tr>
-        </tbody>
-    </table>
-
+    <div class="row">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <!--            Single Header line that spans table width and text is centralized-->
+                        <th colspan="3" class="text-center h4">Projects</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Stage</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--        Thymeleaf if-->
+                    <tr th:if="${#lists.isEmpty(projects)}">
+                        <td colspan="3" class="text-center">No Project Available</td>
+                    </tr>
+                    <!--Loop through all projects and display them in the table-->
+                    <tr th:if="${not #lists.isEmpty(projects)}" th:each="project : ${projects}">
+                        <td th:text="${project.name}"></td>
+                        <td th:text="${project.description}"></td>
+                        <td th:text="${project.stage.getDisplayName()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <canvas id="myPieChart" width="100%" height="100%"></canvas>
+                <script>
+                    const chartData = "[[${chartData}]]";
+                    const stagesLabel = "[[${stages}]]";
+                </script>
+            </div>
+        </div>
+    </div>
     <br>
-<!--    Bootstrap Table for Employees-->
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th colspan="4" class="text-center h4">Employees</th>
-        </tr>
-        <tr>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${#lists.isEmpty(employees)}">
-            <td colspan="3" class="text-center">No Employee Available</td>
-        </tr>
-        <!--Loop through all employees and display them in the table-->
-        <tr th:if="${not #lists.isEmpty(employees)}" th:each="employee : ${employees}">
-            <td th:text="${employee.firstName}"></td>
-            <td th:text="${employee.lastName}"></td>
-            <td th:text="${employee.email}"></td>
-        </tr>
-        </tbody>
-    </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th colspan="4" class="text-center h4">Employees</th>
+            </tr>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">No. of Projects</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${#lists.isEmpty(employees)}">
+                <td colspan="3" class="text-center">No Employee Available</td>
+            </tr>
+            <!--Loop through all employees and display them in the table-->
+            <tr th:if="${not #lists.isEmpty(employees)}" th:each="employee : ${employees}">
+                <td th:text="${employee.firstName}"></td>
+                <td th:text="${employee.lastName}"></td>
+                <td th:text="${employee.projectCount}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+<script th:replace="layouts::bootstrap_js"></script>
+<script type="text/javascript" th:src="@{js/chart.js}"></script>
 </body>
 </html>

@@ -24,11 +24,13 @@ public class EmployeeController {
     @GetMapping()
     public String displayEmployees(Model model) {
         model.addAttribute("employees", employeeRepository.findAll());
+        model.addAttribute("pageTitle", "Employees");
         return EMPLOYEES_HOME;
     }
     @GetMapping("/new")
     public String displayEmployeeForm(Model model) {
         model.addAttribute("employee", new Employee());
+        model.addAttribute("pageTitle", "New Employee");
         return NEW_EMPLOYEE_PAGE;
     }
 

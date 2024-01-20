@@ -29,6 +29,7 @@ public class ProjectController {
     @GetMapping()
     public String displayProjects(@RequestParam(required = false) String errorMessage, Model model) {
         model.addAttribute("projects", projectService.getAll());
+        model.addAttribute("pageTitle", "Projects");
         model.addAttribute("errorMessage", errorMessage);
         return PROJECTS_HOME;
     }
@@ -37,6 +38,7 @@ public class ProjectController {
         model.addAttribute("projectToSave", new ProjectToSave());
         model.addAttribute("allEmployees", employeeService.getAll());
         model.addAttribute("stages", Stage.values());
+        model.addAttribute("pageTitle", "New Project");
         return NEW_PROJECT_PAGE;
     }
 
@@ -55,6 +57,7 @@ public class ProjectController {
         var project = projectService.getProjectById(id);
         if (project != null) {
             model.addAttribute("project", project);
+            model.addAttribute("pageTitle", "Project Details");
             return PROJECT_DETAILS;
         }
         redirectAttributes.addAttribute("errorMessage", "Project not found.");

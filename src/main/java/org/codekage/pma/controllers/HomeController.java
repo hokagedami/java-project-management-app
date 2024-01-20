@@ -1,5 +1,8 @@
 package org.codekage.pma.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.codekage.pma.entities.enums.Stage;
 import org.codekage.pma.repository.EmployeeRepository;
 import org.codekage.pma.repository.ProjectRepository;
 import org.springframework.stereotype.Controller;
@@ -21,12 +24,23 @@ public class HomeController {
     }
 
     @RequestMapping("/")
-    public String displayHome(Model model) {
-        var employees = employeeRepository.findAll().stream().toList();
+    public String displayHome(Model model) throws JsonProcessingException {
+        var employees = employeeRepository.findAllWithProjects();
         var projects = projectRepository.findAll().stream().toList();
+        var projectStages = projectRepository.findProjectStagesCount();
+
+        // convert projectStages to json
+        var objectMapper = new ObjectMapper();
+        var jsonString = objectMapper.writeValueAsString(projectStages);
+        var stagesJson = objectMapper.writeValueAsString(Stage.getStages());
+
+
         model.addAllAttributes(Map.of(
                 "employees", employees,
-                "projects", projects
+                "projects", projects,
+                "chartData", jsonString,
+                "stages", stagesJson,
+                "pageTitle", "Home"
         ));
         return HOME_PAGE;
     }
