@@ -14,6 +14,9 @@ public class Employee {
     private String lastName;
     private String email;
 
+    @Transient
+    private String fullname;
+
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST},
             fetch = FetchType.LAZY)
     @JoinTable(
@@ -26,11 +29,14 @@ public class Employee {
     public Employee() {
     }
 
+
+
     public Employee(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
+
 
     public Long getEmployeeId() {
         return employeeId;
@@ -52,10 +58,14 @@ public class Employee {
         return lastName;
     }
 
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    public String getFullname() {
+        return firstName + " " + lastName;
+    }
     public String getEmail() {
         return email;
     }

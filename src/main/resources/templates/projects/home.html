@@ -23,12 +23,13 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th colspan="3" class="text-center h4">Projects</th>
+            <th colspan="4" class="text-center h4">Projects</th>
         </tr>
         <tr>
             <th scope="col">Project Name</th>
             <th scope="col">Description</th>
             <th scope="col">Stage</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -41,10 +42,13 @@
             <td th:text="${project.name}"></td>
             <td th:text="${project.description}"></td>
             <td th:text="${project.stage.getDisplayName()}"></td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/projects/{id}(id=${project.projectId})}">View</a>
+                <a class="btn btn-danger" th:href="@{/projects/delete/{id}(id=${project.projectId})}">Delete</a>
         </tr>
         <tr>
-            <th colspan="3" class="text-center h4">
-                <a class="btn btn-primary" href="/projects/new">Add New Project</a>
+            <th colspan="4" class="text-center h4">
+                <a class="btn btn-success" href="/projects/new">Add New Project</a>
             </th>
         </tr>
         </tbody>
