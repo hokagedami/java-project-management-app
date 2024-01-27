@@ -38,9 +38,6 @@ public class Project {
         return projectId;
     }
 
-    public void setProjectId(long projectId) {
-        this.projectId = projectId;
-    }
 
     public String getName() {
         return name;
