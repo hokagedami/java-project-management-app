@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="EN">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>E&M - Quiz</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' rel='stylesheet'>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" type="text/css" th:href="@{css/game-style.css}">
+</head>
+<body oncontextmenu='return false' class='snippet-body'>
+    <div class="container-fluid">
+        <div class="modal-dialog" style="width: 50%">
+            <div class="modal-content text-center">
+                <div class="modal-header" id="question-header" style="display: none">
+                    <div class="text-center hidden">
+                        <img th:src="@{images/explorer.png}" class="rounded-3 border-dark" alt="..." style="object-fit: cover; width: 80%; height: 80%">
+                    </div>
+                    <hr>
+                    <h3 id="question" class="text-center"></h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-xs-3 5"></div>
+                    <div class="quiz" id="quiz-answers" data-toggle="buttons">
+                        <div id="question-options" style="display: none">
+                            <label class="element-animation1 btn btn-lg btn-primary btn-block" >
+                            <span class="btn-label">
+                                <i class="glyphicon glyphicon-chevron-right"></i>
+                            </span>
+                                <input type="radio" name="q_answer" value="1">
+                                <span id="option-1">
+                            </span>
+                            </label>
+                            <label class="element-animation2 btn btn-lg btn-primary btn-block">
+                            <span class="btn-label">
+                                <i class="glyphicon glyphicon-chevron-right"></i>
+                            </span>
+                                <input type="radio" name="q_answer" value="2">
+                                <span id="option-2">
+                            </span>
+                            </label>
+                            <label class="element-animation3 btn btn-lg btn-primary btn-block">
+                            <span class="btn-label">
+                                <i class="glyphicon glyphicon-chevron-right"></i>
+                            </span>
+                                <input type="radio" name="q_answer" value="3">
+                                <span id="option-3">
+                            </span>
+                            </label>
+                            <label class="element-animation4 btn btn-lg btn-primary btn-block">
+                            <span class="btn-label">
+                                <i class="glyphicon glyphicon-chevron-right"></i>
+                            </span>
+                                <input type="radio" name="q_answer" value="4">
+                                <span id="option-4">
+                            </span>
+                            </label>
+                        </div>
+                        <hr>
+                        <div id="clock-buttons" class="text-center">
+                            <div id="myProgress">
+                                <div id="myBar"></div>
+                            </div>
+                            <div>
+                                <button id="startButton" class="btn btn-lg btn-success">Start</button>
+<!--                                <button class="btn btn-lg btn-primary" onclick="pauseGame()" >Pause</button>-->
+<!--                                <button class="btn btn-lg btn-danger" onclick="stopGame()">Stop</button>-->
+<!--                                <button class="btn btn-lg btn-default" onclick="resetGame()">Reset</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type='text/javascript'>
+    const questions = "[[${questions}]]";
+</script>
+    <script th:replace="layouts::bootstrap_js"></script>
+    <script type="text/javascript" th:src="@{js/game.js}"></script>
+</body>
+</html>
