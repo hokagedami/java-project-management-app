@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{layouts::header}"></head>
+<body>
+<nav th:replace="layouts::navbar"></nav>
+<div class="container">
+    <br>
+    <h4>New Quiz Question</h4>
+    <form class="row g-3" th:action="@{/game/save-question}" th:object="${question}" method="post">
+        <div class="col-md-12">
+            <label class="form-label" for="question">Question</label>
+            <input type="text" class="form-control" id="question" placeholder="Question here..."
+                   th:field="${question.question}">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label" for="category">Category</label>
+            <input type="text" class="form-control" id="category" placeholder="Category here..."
+                   th:field="${question.category}">
+        </div>
+        <div class="col-md-2 form-check">
+            <input type="checkbox" class="form-check-input" id="hasImage" placeholder="Last Name"
+                   th:field="${question.hasImage}">
+            <label class="form-check-label" for="hasImage">Image Needed</label>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="image">Image Link</label>
+            <input type="text" class="form-control" id="image" placeholder="Image link here..."
+                   th:field="${question.image}">
+        </div>
+        <div class="col-md-12">
+            <label class="form-label" for="answer">Answer</label>
+            <input type="text" class="form-control" id="answer" placeholder="Answer here..."
+                   th:field="${question.answer}">
+        </div>
+        <div class="col-md-12">
+            <label class="form-label" for="option1">Option 1</label>
+            <input type="text" class="form-control" id="option1" placeholder="Option 1 here..."
+                   th:field="${question.option1}">
+        </div>
+        <div class="col-md-12">
+            <label class="form-label" for="option2">Option 1</label>
+            <input type="text" class="form-control" id="option2" placeholder="Option 2 here..."
+                   th:field="${question.option2}">
+        </div>
+        <div class="col-md-12">
+            <label class="form-label" for="option3">Option 3</label>
+            <input type="text" class="form-control" id="option3" placeholder="Option 3 here..."
+                   th:field="${question.option3}">
+        </div>
+        <div class="col-md-12">
+            <label class="form-label" for="option4">Option 4</label>
+            <input type="text" class="form-control" id="option4" placeholder="Option 4 here..."
+                   th:field="${question.option1}">
+        </div>
+        <div class="text-center row my-4">
+            <div class="col-md-6">
+                <label for="exit" class="visually-hidden"></label>
+                <a class="btn btn-danger" id="exit" href="/game">Exit</a>
+            </div>
+            <div class="col-md-6">
+                <label for="submit" class="visually-hidden"></label>
+                <input class="btn btn-success" type="submit" value="Add Question" id="submit">
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

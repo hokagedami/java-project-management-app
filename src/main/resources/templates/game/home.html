@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head th:replace="~{layouts::header}"></head>
-<body  style="background-color: cadetblue">
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Javascript required for page to run.
-    Please enable Javascript and reload this page!</h2></noscript>
-<nav th:replace="layouts::navbar"></nav>
+<body>
+    <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Javascript required for page to run.
+        Please enable Javascript and reload this page!</h2></noscript>
+    <nav th:replace="layouts::navbar"></nav>
 
-<div class="container bg-primary-subtle">
-    <br>
-    <div class="row">
-        <div class="text-center">
-            <img th:src="@{images/explorer.png}" class="img-fluid rounded-3 w-50 border-dark" alt="...">
+    <div class="container bg-primary-subtle">
+        <br>
+        <div class="row">
+            <div class="text-center my-5">
+                <img th:src="@{images/quiz.jpeg}" class="img-fluid rounded-3 w-50 border-dark" alt="...">
+            </div>
+            <br>
+            <hr>
+            <div class="text-center d-flex justify-content-around">
+                <a class="btn btn-primary" href="game/add-question">Add New Quiz Question</a>
+                <a class="btn btn-success" href="game/quiz">Go To Quiz Game</a>
+            </div>
         </div>
     </div>
-    <br>
-    <hr>
-</div>
 </body>
 </html>

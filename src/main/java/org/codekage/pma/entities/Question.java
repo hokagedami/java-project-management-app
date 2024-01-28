@@ -6,9 +6,7 @@ import jakarta.persistence.*;
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
+    private Long questionId;
     private String question;
     private String category;
     private String option1;
@@ -23,7 +21,8 @@ public class Question {
 
     }
 
-    public Question(String question, String category, String option1, String option2, String option3, String option4, String answer, boolean hasImage, String image) {
+    public Question(String question, String category, boolean hasImage, String image, String answer,
+                    String option1, String option2, String option3, String option4) {
         this.question = question;
         this.category = category;
         this.option1 = option1;
@@ -35,18 +34,8 @@ public class Question {
         this.image = image;
     }
 
-    public Question(String question, String category, String option1, String option2, String option3, String option4, String answer, boolean hasImage) {
-        this.question = question;
-        this.category = category;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
-        this.option4 = option4;
-        this.answer = answer;
-        this.hasImage = hasImage;
-    }
-    public Long getId() {
-        return id;
+    public Long getQuestionId() {
+        return questionId;
     }
 
     public String getQuestion() {

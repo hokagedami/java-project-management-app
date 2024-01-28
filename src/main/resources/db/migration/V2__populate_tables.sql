@@ -15,3 +15,13 @@ insert into projects_employees (project_id, employee_id) values (1002, 1002);
 insert into projects_employees (project_id, employee_id) values (1002, 1003);
 insert into projects_employees (project_id, employee_id) values (1003, 1004);
 insert into projects_employees (project_id, employee_id) values (1003, 1005);
+
+insert into question(question, category, option1, option2, option3, option4, answer, has_image, image)
+values ('What is the capital of India?', 'Geography',
+                             'New Delhi', 'Mumbai', 'Kolkata', 'Chennai', 'New Delhi', false, null);
+insert into question(question, category, option1, option2, option3, option4, answer, has_image, image)
+values ('What is the capital of Australia?', 'Geography',
+                             'Sydney', 'Melbourne', 'Canberra', 'Perth', 'Canberra', false, null);
+insert into question(question, category, option1, option2, option3, option4, answer, has_image, image)
+values ('What is the capital of USA?', 'Geography',
+                             'New York', 'Washington DC', 'Los Angeles', 'Chicago', 'Washington DC', false, null);

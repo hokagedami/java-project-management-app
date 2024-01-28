@@ -57,13 +57,13 @@ function displayQuestion(index) {
     const questionDiv = document.getElementById("question");
     questionDiv.innerHTML = question["question"];
     const option1Div = document.getElementById("option-1");
-    option1Div.innerText = question["answers"][0];
+    option1Div.innerText = question["options"][0];
     const option2Div = document.getElementById("option-2");
-    option2Div.innerText = question["answers"][1];
+    option2Div.innerText = question["options"][1];
     const option3Div = document.getElementById("option-3");
-    option3Div.innerText = question["answers"][2];
+    option3Div.innerText = question["options"][2];
     const option4Div = document.getElementById("option-4");
-    option4Div.innerText = question["answers"][3];
+    option4Div.innerText = question["options"][3];
 }
 
 function displayGameEnd(){

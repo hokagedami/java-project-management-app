@@ -1,6 +1,8 @@
 package org.codekage.pma.services;
 
+import org.codekage.pma.entities.Question;
 import org.codekage.pma.model.QuizQuestion;
+import org.codekage.pma.repository.QuestionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,10 +10,28 @@ import java.util.ArrayList;
 @Service
 public class QuizService {
 
+    private final QuestionRepository questionRepository;
+
+    public QuizService(QuestionRepository questionRepository) {
+        this.questionRepository = questionRepository;
+    }
+
     public ArrayList<QuizQuestion> getQuizQuestions() {
         var quiz = new ArrayList<QuizQuestion>();
-        quiz.add(new QuizQuestion("What is the capital of France?", "Geography", new String[]{"Paris", "London", "Berlin", "Madrid"}, false, null));
-        quiz.add(new QuizQuestion("What is the capital of Spain?", "Geography", new String[]{"Paris", "London", "Berlin", "Madrid"}, false, null));
+        var questions = questionRepository.findAll();
+        for (var question : questions) {
+            quiz.add(new QuizQuestion(question.getQuestion(), question.getCategory(),
+                    new String[]{question.getOption1(), question.getOption2(), question.getOption3(),
+                            question.getOption4()}, false, null));
+        }
         return quiz;
+    }
+
+    public void saveQuestion(Question question) {
+        try {
+            questionRepository.save(question);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

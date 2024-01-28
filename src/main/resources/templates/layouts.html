@@ -7,10 +7,10 @@
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{css/game-style.css}">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
-    <script type="text/javascript" th:src="@{js/game.js}"></script>
 </head>
 <body>
 <!--Bootstrap Navbar with links to Employees and Projects-->
@@ -35,7 +35,8 @@
                 </li>
                 <!--                Link to game home page-->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/game-home}">Game</a>
+                    <a class="nav-link" th:href="@{/game}">Game</a>
+                </li>
             </ul>
         </div>
     </div>
