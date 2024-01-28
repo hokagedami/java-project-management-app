@@ -16,12 +16,12 @@ insert into projects_employees (project_id, employee_id) values (1002, 1003);
 insert into projects_employees (project_id, employee_id) values (1003, 1004);
 insert into projects_employees (project_id, employee_id) values (1003, 1005);
 
-insert into question(question, category, option1, option2, option3, option4, answer, has_image, image)
-values ('What is the capital of India?', 'Geography',
+insert into question(question_id, ask, category, option1, option2, option3, option4, answer, has_image, image)
+values (1001, 'What is the capital of India?', 'Geography',
                              'New Delhi', 'Mumbai', 'Kolkata', 'Chennai', 'New Delhi', false, null);
-insert into question(question, category, option1, option2, option3, option4, answer, has_image, image)
-values ('What is the capital of Australia?', 'Geography',
+insert into question(question_id, ask, category, option1, option2, option3, option4, answer, has_image, image)
+values (1002, 'What is the capital of Australia?', 'Geography',
                              'Sydney', 'Melbourne', 'Canberra', 'Perth', 'Canberra', false, null);
-insert into question(question, category, option1, option2, option3, option4, answer, has_image, image)
-values ('What is the capital of USA?', 'Geography',
+insert into question(question_id, ask, category, option1, option2, option3, option4, answer, has_image, image)
+values (1003, 'What is the capital of USA?', 'Geography',
                              'New York', 'Washington DC', 'Los Angeles', 'Chicago', 'Washington DC', false, null);

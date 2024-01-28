@@ -5,55 +5,67 @@
     <nav th:replace="layouts::navbar"></nav>
     <div class="container w-75 my-3">
         <div class="row card w-75 text-center">
+
             <div id="question-header" class="text-center py-3">
-                <div style="display: none">
-                    <img th:src="@{images/explorer.png}" class="img-fluid rounded-3 w-50 border-dark" alt="...">
+                <div class="text-center my-5">
+                    <img style="display: none;" src="" id="question-image" class="img-fluid rounded-3 w-50 border-dark" alt="...">
                 </div>
                 <h3 id="question" class="text-center">Q. Questions come here...?</h3>
             </div>
             <hr>
             <div class="quiz text-center" id="quiz-answers" data-toggle="buttons">
-                <div id="question-options" style="display: block">
+                <div id="question-options" style="display: none">
                     <div class="py-2">
                         <label class="element-animation1 btn btn-lg btn-primary btn-block" >
                             <span class="btn-label">
-                                <img width="60" height="60" src="https://img.icons8.com/wired/64/FFFFFF/chevron-right.png" alt="chevron-right"/>
+                                <img width="60" height="60" src="https://img.icons8.com/stickers/100/a.png" alt="a"/>
                             </span>
                             <input type="radio" name="q_answer" value="1">
-                            <span id="option-1"></span>
+                            <span id="option-1" class="px-3"></span>
                         </label>
                     </div>
                     <div class="py-2">
                         <label class="element-animation2 btn btn-lg btn-primary btn-block">
                             <span class="btn-label">
-                                            <img width="60" height="60" src="https://img.icons8.com/wired/64/FFFFFF/chevron-right.png" alt="chevron-right"/>
-                                        </span>
+                                <img width="60" height="60" src="https://img.icons8.com/stickers/100/b.png" alt="b"/>
+
+                            </span>
                             <input type="radio" name="q_answer" value="2">
-                            <span id="option-2"></span>
+                            <span id="option-2" class="px-3"></span>
                         </label>
                     </div>
                     <div class="py-2">
                         <label class="element-animation3 btn btn-lg btn-primary btn-block">
                             <span class="btn-label">
-                                            <img width="60" height="60" src="https://img.icons8.com/wired/64/FFFFFF/chevron-right.png" alt="chevron-right"/>
-                                        </span>
+                                <img width="60" height="60" src="https://img.icons8.com/stickers/100/c.png" alt="c"/>
+                            </span>
                             <input type="radio" name="q_answer" value="3">
-                            <span id="option-3"></span>
+                            <span id="option-3" class="px-3"></span>
                         </label>
                     </div>
                     <div class="py-2">
                         <label class="element-animation4 btn btn-lg btn-primary btn-block">
                             <span class="btn-label">
-                                <img width="60" height="60" src="https://img.icons8.com/wired/64/FFFFFF/chevron-right.png" alt="chevron-right"/>
+                                <img width="60" height="60`" src="https://img.icons8.com/stickers/100/d.png" alt="d"/>
                             </span>
                             <input type="radio" name="q_answer" value="4">
-                            <span id="option-4"></span>
+                            <span id="option-4" class="px-3"></span>
+                        </label>
+                    </div>
+                    <hr style="display: none" id="answer-line">
+                    <div class="py-2">
+                        <label class="element-animation4 btn btn-lg btn-success btn-block" id="answer-bar" style="display: none">
+                            <span class="btn-label">
+                                <img width="60" height="60" src="https://img.icons8.com/emoji/48/check-box-with-check-emoji.png" alt="check-box-with-check-emoji"/>
+                            </span>
+                            <input type="radio" name="answer-bar" value="4">
+                            <span id="answer-span" class="px-3 bold"></span>
                         </label>
                     </div>
                 </div>
                 <hr>
                 <div id="clock-buttons" class="text-center">
-                    <div id="myProgress">
+                    <div id="myProgress" style="display: none">
                         <div id="myBar"></div>
                     </div>
                     <div class="my-3">
@@ -62,16 +74,17 @@
                 </div>
             </div>
         </div>
-        <div class="my-3">
+        <div class="my-3 text-center d-flex justify-content-around w-75">
             <a id="exitButton" class="btn btn-lg btn-danger" href="/game">
-                <button class="btn btn-danger">Exit</button>
+                Exit
             </a>
+            <button id="nextButton" class="btn btn-lg btn-success" style="display: none">Show Answers</button>
         </div>
     </div>
     <script type='text/javascript'>
     const questions = "[[${questions}]]";
 </script>
     <script th:replace="layouts::bootstrap_js"></script>
-    <script type="text/javascript" th:src="@{js/game.js}"></script>
+    <script type="text/javascript" th:src="@{/js/game.js}"></script>
 </body>
 </html>

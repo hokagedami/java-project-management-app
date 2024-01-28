@@ -7,13 +7,15 @@ public class QuizQuestion {
 
     private boolean hasImage;
     private String image;
+    private String answer;
 
-    public QuizQuestion(String question, String category, String[] options, boolean hasImage, String image) {
+    public QuizQuestion(String question, String category, String[] options, boolean hasImage, String image, String answer) {
         this.question = question;
         this.options = options;
         this.category = category;
         this.hasImage = hasImage;
         this.image = image;
+        this.answer = answer;
     }
 
     public QuizQuestion() {
@@ -56,5 +58,13 @@ public class QuizQuestion {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }

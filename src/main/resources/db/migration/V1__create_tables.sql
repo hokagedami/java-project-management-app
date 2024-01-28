@@ -8,9 +8,9 @@ create table projects_employees(project_id bigint not null, employee_id bigint n
                                 foreign key (employee_id) references employee(employee_id),
                                 foreign key (project_id) references project(project_id));
 
-create table question(question_id bigint primary key, question text, category text,
-                      option1 text, option2 text, option3 text, option4 text, answer text,
-                      has_image boolean, image text);
+create table question(question_id bigint primary key, ask varchar(500), category varchar(500),
+                      option1 varchar(500), option2 varchar(500), option3 varchar(500), option4 varchar(500), answer varchar(500),
+                      has_image boolean, image varchar(500));
 
 create sequence employee_seq start with 1 increment by 50;
 create sequence project_seq start with 1 increment by 50;

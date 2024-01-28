@@ -20,9 +20,9 @@ public class QuizService {
         var quiz = new ArrayList<QuizQuestion>();
         var questions = questionRepository.findAll();
         for (var question : questions) {
-            quiz.add(new QuizQuestion(question.getQuestion(), question.getCategory(),
+            quiz.add(new QuizQuestion(question.getAsk(), question.getCategory(),
                     new String[]{question.getOption1(), question.getOption2(), question.getOption3(),
-                            question.getOption4()}, false, null));
+                            question.getOption4()}, question.isHasImage(), question.getImage(), question.getAnswer()));
         }
         return quiz;
     }

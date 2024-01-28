@@ -49,6 +49,6 @@ public class GameController {
     @PostMapping("/save-question")
     public String saveQuestion(Question question, Model model) {
         quizService.saveQuestion(question);
-        return "redirect:game";
+        return "redirect:/game";
     }
 }

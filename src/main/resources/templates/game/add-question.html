@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <label class="form-label" for="question">Question</label>
             <input type="text" class="form-control" id="question" placeholder="Question here..."
-                   th:field="${question.question}">
+                   th:field="${question.ask}">
         </div>
         <div class="col-md-4">
             <label class="form-label" for="category">Category</label>
@@ -38,7 +38,7 @@
                    th:field="${question.option1}">
         </div>
         <div class="col-md-12">
-            <label class="form-label" for="option2">Option 1</label>
+            <label class="form-label" for="option2">Option 2</label>
             <input type="text" class="form-control" id="option2" placeholder="Option 2 here..."
                    th:field="${question.option2}">
         </div>
@@ -50,16 +50,15 @@
         <div class="col-md-12">
             <label class="form-label" for="option4">Option 4</label>
             <input type="text" class="form-control" id="option4" placeholder="Option 4 here..."
-                   th:field="${question.option1}">
+                   th:field="${question.option4}">
         </div>
         <div class="text-center row my-4">
             <div class="col-md-6">
-                <label for="exit" class="visually-hidden"></label>
-                <a class="btn btn-danger" id="exit" href="/game">Exit</a>
+                <a class="btn btn-lg btn-danger" id="exit" href="/game">Exit</a>
             </div>
             <div class="col-md-6">
                 <label for="submit" class="visually-hidden"></label>
-                <input class="btn btn-success" type="submit" value="Add Question" id="submit">
+                <input class="btn btn-lg btn-success" type="submit" value="Add Question" id="submit">
             </div>
         </div>
     </form>

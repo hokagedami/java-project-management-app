@@ -7,7 +7,7 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long questionId;
-    private String question;
+    private String ask;
     private String category;
     private String option1;
     private String option2;
@@ -21,9 +21,9 @@ public class Question {
 
     }
 
-    public Question(String question, String category, boolean hasImage, String image, String answer,
+    public Question(String ask, String category, boolean hasImage, String image, String answer,
                     String option1, String option2, String option3, String option4) {
-        this.question = question;
+        this.ask = ask;
         this.category = category;
         this.option1 = option1;
         this.option2 = option2;
@@ -38,12 +38,12 @@ public class Question {
         return questionId;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getAsk() {
+        return ask;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setAsk(String ask) {
+        this.ask = ask;
     }
 
     public String getCategory() {
